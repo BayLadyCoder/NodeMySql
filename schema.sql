@@ -7,3 +7,8 @@ CREATE TABLE todos
 );
 
 /* run the file in mysql: source schema.sql */
+
+
+
+INSERT INTO todos (task) VALUES
+('get some apples'), ('play with the cats');
