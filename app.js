@@ -9,12 +9,25 @@ const db = mysql.createConnection({
   database: "todo_app"
 });
 
-let sql = "SELECT CURTIME() as time, CURDATE() AS date, NOW() as now";
+// selecting eveything from the todos table
+let sql = "SELECT * FROM todos";
+
+// counting how many rows in the database
+let total = "SELECT COUNT(*) AS total FROM todos";
+
 db.query(sql, (error, result, fields) => {
   if (error) throw error;
-  console.log(result[0].time);
-  console.log(result[0].date);
-  console.log(result[0].now);
+  console.log(result);
+  console.log("------------------");
+  console.log(result[0]);
+  console.log("------------------");
+  console.log(result[1].task);
+  console.log("------------------");
+});
+
+db.query(total, (error, result, fields) => {
+  if (error) throw error;
+  console.log(result);
 });
 
 // Close Database
