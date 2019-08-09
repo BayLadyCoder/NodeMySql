@@ -9,23 +9,32 @@ const db = mysql.createConnection({
   database: "todo_app"
 });
 
-// selecting eveything from the todos table
+// selecting everything from the todos table
 let sql = "SELECT * FROM todos";
+
+// db.query(sql, (error, result, fields) => {
+//   if (error) throw error;
+//   console.log(result);
+//   console.log("------------------");
+//   console.log(result[0]);
+//   console.log("------------------");
+//   console.log(result[1].task);
+//   console.log("------------------");
+// });
 
 // counting how many rows in the database
 let total = "SELECT COUNT(*) AS total FROM todos";
 
-db.query(sql, (error, result, fields) => {
-  if (error) throw error;
-  console.log(result);
-  console.log("------------------");
-  console.log(result[0]);
-  console.log("------------------");
-  console.log(result[1].task);
-  console.log("------------------");
-});
+// db.query(total, (error, result, fields) => {
+//   if (error) throw error;
+//   console.log(result);
+// });
 
-db.query(total, (error, result, fields) => {
+// INSERTING DATA  -- DATE format (year-mm-dd)
+let newTask =
+  "INSERT INTO todos (task, setDate) VALUES ('learn SQL', '2019-08-20')";
+
+db.query(newTask, (error, result, fields) => {
   if (error) throw error;
   console.log(result);
 });
